@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome'); //:3
+    return view('welcome');
 });
 
 Route::get('/dashboard', function () {
@@ -30,6 +30,12 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/city', function(){
-    return "Miasto";
+Route::get('/city_old', function(){
+    return "City";
 });
+
+Route::get('/city', function(){
+    return view('city');
+});
+
+Route::redirect('/', "/city_old");
