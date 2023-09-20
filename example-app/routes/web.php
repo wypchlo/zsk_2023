@@ -54,5 +54,10 @@ Route::get('city2', function(){
 });
 
 Route::get('page/{x}', function($x){
-    return $x;
+    $info = [
+        'about' => 'informacje',
+        'contact' => 'kontakt',
+        'home' => 'strona',
+    ];
+    return $info[$x];
 });
