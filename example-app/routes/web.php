@@ -38,7 +38,21 @@ Route::get('/city', function(){
     return view('city');
 });
 
-Route::redirect('/', "/city", 303);
+Route::redirect('/', "/status");
+
 Route::get('/status', function(){
-    return "Status";
+    $response = Response::json([
+        'error' => false,
+        'code' => 201,
+        'message' => 'all good'
+    ], 500);
+    return $response->status();
+});
+
+Route::get('city2', function(){
+    return view('city', ["name" => "Janusz", "city" => "Poznan"]);
+});
+
+Route::get('page/{x}', function($x){
+    return $x;
 });
