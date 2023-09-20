@@ -38,4 +38,7 @@ Route::get('/city', function(){
     return view('city');
 });
 
-Route::redirect('/', "/city_old");
+Route::redirect('/', "/city", 303);
+Route::get('/status', function(){
+    return "Status";
+});
